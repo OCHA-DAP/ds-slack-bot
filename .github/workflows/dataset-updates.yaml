@@ -1,0 +1,14 @@
+name: Manual Dataset Update Notification
+on:
+  schedule:
+    - cron: '0 9 1 * *'  # 9am UTC on the 1st
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v2
+      - name: Send dataset update notification
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        run: uv run src/dataset_updates.py
