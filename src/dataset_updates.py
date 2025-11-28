@@ -7,7 +7,7 @@ from slack_sdk.errors import SlackApiError
 load_dotenv()
 
 client = WebClient(token=os.getenv("SLACK_BOT_TOKEN"))
-channel = "#hdx-signals-bot-testing"
+channel = "#dsci-pipelines-stats"
 
 
 def send_monthly_message():
